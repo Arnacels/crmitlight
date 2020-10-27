@@ -1,7 +1,8 @@
 # Mini CRM 
 
 For start project use python 3.8.2:
-Docker
+
+#### Docker
 
     - use 
     git clone https://github.com/Arnacels/crmitlight.git
@@ -12,7 +13,7 @@ Docker
      
 
   
-Without Docker
+#### Without Docker
 
      - use git clone https://github.com/Arnacels/crmitlight.git
      - go to the project directory
