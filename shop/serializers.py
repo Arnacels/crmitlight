@@ -2,7 +2,6 @@ from decimal import Decimal
 from django.utils import timezone
 from rest_framework import serializers
 from hashid_field.rest import HashidSerializerCharField
-from django.contrib.auth.models import User
 from .models import (Product, Order, Discount)
 
 
@@ -71,16 +70,7 @@ class CreateOrderSerializer(OrderSerializer):
 
 
 class PartialOrderUpdateSerializer(serializers.ModelSerializer):
-    order_check = serializers.SerializerMethodField()
 
     class Meta:
         model = Order
-        fields = ('status', 'order_check')
-
-    def get_order_check(self, obj):
-        if obj.status == 3:
-            obj.pay = True
-            obj.save()
-            order = OrderSerializer(obj)
-            return order.data
-        return None
+        fields = ('status',)
