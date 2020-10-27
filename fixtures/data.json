@@ -1,0 +1,142 @@
+[
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "Paymaster",
+      "permissions": []
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "ShopAssistant",
+      "permissions": []
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+      "name": "Accountant",
+      "permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$aIAs1x3O89U4$k5utd/4o/A8jyAHWtpshBOGqrHAGv0l3GYAp1Xqka7c=",
+      "last_login": "2020-10-20T09:44:27.746Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2020-10-20T09:44:01.570Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$xfreastyXDr7$Cs6IxbytUyCyp0nERrtQZVffpyKDZijbdPnkRjvb2J4=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "anna",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-10-20T13:37:12Z",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$B7Ur5q0E5gpz$sF795TiAQvDW4cnNE+QZsu3AGRDKi6+6NciGhjoZ2Xw=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "lina",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-10-27T09:03:49Z",
+      "groups": [
+        3
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$3B6UIhXvZeli$5tiCXyQm9+Jh+46ZVSDmDpaI+TAOSwzcoCJFvqgfvQI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "yana",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2020-10-27T09:56:22Z",
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+      "date": "2020-10-20T09:46:35Z",
+      "name": "Стул",
+      "description": "Супер Стул",
+      "unit": "шт.",
+      "amount": "100.00",
+      "price_sell": "450.00",
+      "price_buy": "350.00"
+    }
+  },
+  {
+    "model": "shop.order",
+    "pk": "3YEl1gV",
+    "fields": {
+      "buyer": null,
+      "product": 1,
+      "amount": "450.00",
+      "pay": false,
+      "date": "2020-10-27T09:24:01.476Z",
+      "status": 0
+    }
+  },
+  {
+    "model": "shop.discount",
+    "pk": 2,
+    "fields": {
+      "title": "Скидки на хелоувин",
+      "discount": "20",
+      "date_start": "2020-10-20T11:19:09Z",
+      "date_end": "2020-10-28T12:19:11Z",
+      "products": [
+        1
+      ]
+    }
+  }
+]

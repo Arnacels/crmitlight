@@ -8,10 +8,11 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 @admin.register(Discount)
-class ProductAdmin(admin.ModelAdmin):
+class DiscountAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(Order)
-class ProductAdmin(admin.ModelAdmin):
-    pass
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('id', 'buyer', 'product', 'amount', 'pay', 'date', 'status')
+

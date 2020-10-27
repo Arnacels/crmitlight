@@ -12,13 +12,16 @@ class Product(models.Model):
     price_buy = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateTimeField(auto_created=True)
 
+    def __str__(self):
+        return str(self.name)
+
 
 class Order(models.Model):
     STATUSES = ((0, 'Отправлен'), (1, 'В обработке'), (2, 'Выполнено'), (3, 'Оплачен'),)
 
     id = HashidAutoField(primary_key=True, allow_int=False)
     buyer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE,)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, )
     amount = models.DecimalField(max_digits=16, decimal_places=2)
     pay = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
@@ -26,6 +29,18 @@ class Order(models.Model):
 
     class Meta:
         ordering = ('-date',)
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        if self.status == 0:
+            self.product.amount -= 1
+            self.product.save()
+        super().save(force_insert=False, force_update=False, using=None,
+                     update_fields=None)
+
+    def delete(self, using=None, keep_parents=False):
+        self.product.amount += 1
+        super().delete(using=None, keep_parents=False)
 
 
 class Discount(models.Model):

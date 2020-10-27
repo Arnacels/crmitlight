@@ -38,30 +38,49 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CreateOrderSerializer(serializers.ModelSerializer):
+class CreateOrderSerializer(OrderSerializer):
     class Meta:
         model = Order
-        fields = ('buyer', 'product',)
+        fields = ('id', 'buyer', 'product',)
 
     def create(self, validated_data):
         now = timezone.now()
         product = validated_data.get('product')
         discounts = Discount.objects.filter(products=product, date_start__lt=now, date_end__gt=now)
         amount = product.price_sell
+
+        discount = Decimal(0)
         if discounts.exists():
-            discount = Decimal(0)
             for dis in discounts:
                 discount += dis.discount
-            amount = (product.price_sell * discount) / 100
+        if discount > 0:
+            discount += self.discount_for_oldest(product)
+            amount = amount - (product.price_sell * discount) / 100
+
         order = Order(product=product, amount=amount)
         if validated_data.get('buyer'):
             order.buyer = validated_data.get('buyer')
         order.save()
         return order
 
+    @staticmethod
+    def discount_for_oldest(product):
+        if product.date < (timezone.now() - timezone.timedelta(days=30)):
+            return 20
+        return 0
 
-class PartialUpdateSerializer(serializers.ModelSerializer):
+
+class PartialOrderUpdateSerializer(serializers.ModelSerializer):
+    order_check = serializers.SerializerMethodField()
 
     class Meta:
         model = Order
-        fields = ('status',)
+        fields = ('status', 'order_check')
+
+    def get_order_check(self, obj):
+        if obj.status == 3:
+            obj.pay = True
+            obj.save()
+            order = OrderSerializer(obj)
+            return order.data
+        return None
