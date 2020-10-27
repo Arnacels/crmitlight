@@ -28,7 +28,7 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$216000$aIAs1x3O89U4$k5utd/4o/A8jyAHWtpshBOGqrHAGv0l3GYAp1Xqka7c=",
-      "last_login": "2020-10-20T09:44:27.746Z",
+      "last_login": "2020-10-27T11:19:50.744Z",
       "is_superuser": true,
       "username": "admin",
       "first_name": "",
@@ -45,7 +45,7 @@
     "model": "auth.user",
     "pk": 2,
     "fields": {
-      "password": "pbkdf2_sha256$216000$xfreastyXDr7$Cs6IxbytUyCyp0nERrtQZVffpyKDZijbdPnkRjvb2J4=",
+      "password": "pbkdf2_sha256$216000$mhZM4a06uhCK$WvuKFklNher3tqy91Z+fBf/8aq38DhpjFEu52w6Uf0g=",
       "last_login": null,
       "is_superuser": false,
       "username": "anna",
@@ -65,7 +65,7 @@
     "model": "auth.user",
     "pk": 3,
     "fields": {
-      "password": "pbkdf2_sha256$216000$B7Ur5q0E5gpz$sF795TiAQvDW4cnNE+QZsu3AGRDKi6+6NciGhjoZ2Xw=",
+      "password": "pbkdf2_sha256$216000$2GfdWQpRhp7U$t4CywrDLO1WsMUSii3516GfIBcjieaozzTY1a/IwGV8=",
       "last_login": null,
       "is_superuser": false,
       "username": "lina",
@@ -85,7 +85,7 @@
     "model": "auth.user",
     "pk": 4,
     "fields": {
-      "password": "pbkdf2_sha256$216000$3B6UIhXvZeli$5tiCXyQm9+Jh+46ZVSDmDpaI+TAOSwzcoCJFvqgfvQI=",
+      "password": "pbkdf2_sha256$216000$raLfAMt2RXZN$jXV+o3kbr7VsYCEyBEIMneMsdNuPG+w2hBi9nPtD7Vc=",
       "last_login": null,
       "is_superuser": false,
       "username": "yana",
