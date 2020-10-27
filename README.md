@@ -1,46 +1,37 @@
 # Mini CRM 
 
-    For start project use python 3.8.2:
-    Docker
-     - use 
-`git clone https://github.com/Arnacels/crmitlight.git`
+For start project use python 3.8.2:
+Docker
 
+    - use 
+    git clone https://github.com/Arnacels/crmitlight.git
      - go to the project directory
      - use 
-`docker-compose up -d --build`
-     
+    docker-compose up -d --build
      - go to https://127.0.0.1:8000/
      
-     
-    
-    Without Docker
-     - use 
-`git clone https://github.com/Arnacels/crmitlight.git`
 
+  
+Without Docker
+
+     - use git clone https://github.com/Arnacels/crmitlight.git
      - go to the project directory
      - in crm/settings.py change SECRET_KEY on "n!s$@r)sorp27ui76ijigznkc$xkj--)2bp0mba-ck3qd0_w_m"
      - in crm/settings.py change HASHID_FIELD_SALT on "sht7vlw4"
-     - run 
-`python -m venv venv`
+     - run python -m venv venv
 
-     - if windows 
-`venv/Scripts/activate`
+     - if windows venv/Scripts/activate
 
-     - if linux 
-`source venv/bin/activate`
+     - if linux source venv/bin/activate
 
-     - run 
-`pip install -r requirements.txt`
+     - run pip install -r requirements.txt
 
      - run 
-`python manage.py makemigrtaions shop`
-
-`python manage.py migrate`
-
-`python manage.py loaddata fixtures/data.json`
-
-`python manage.py runserver`
-
+     
+    python manage.py makemigrtaions shop
+    python manage.py migrate
+    python manage.py loaddata fixtures/data.json
+    python manage.py runserver
      - go to https://127.0.0.1:8000/
 
 
